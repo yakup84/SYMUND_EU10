@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "Step_Definitions",
         dryRun = false,
-        tags = "@SYMUND"
+        tags = "@SYMU10-377 or @SYMU10-379 or @SYMU10-380 or @SYMU10-381"
 
 
 )

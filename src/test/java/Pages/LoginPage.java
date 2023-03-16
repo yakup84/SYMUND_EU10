@@ -1,12 +1,14 @@
 package Pages;
 
+import Utilities.BrowserUtils;
 import Utilities.Driver;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage {
+public class LoginPage extends BrowserUtils {
 
     public LoginPage() {
         PageFactory.initElements(Driver.getDriver(), this);

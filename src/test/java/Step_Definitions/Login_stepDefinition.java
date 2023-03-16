@@ -51,17 +51,14 @@ verifyTitleFonction(
     @Then("should be displayed {string} message")
     public void shouldBeDisplayedMessage(String arg0) {
         Assert.assertTrue(loginPage.wrongUsernamePasswordMessage.isDisplayed());
-        Assert.assertEquals("Wrong username or password.", loginPage.wrongUsernamePasswordMessage.getText().trim());
+        Assert.assertEquals(arg0, loginPage.wrongUsernamePasswordMessage.getText().trim());
     }
 
     @When("user enter blank {string} or{string} into user and password field")
     public void userEnterBlankOrIntoUserAndPasswordField(String arg0, String arg1) {
         sendKeysFonction(loginPage.inputUsername, arg0);
         sendKeysFonction(loginPage.inputPassword, arg1);
-        //Assert.assertTrue(loginPage.popupMessage.getAttribute("required"));
-      //  Boolean isRequired = Driver.getDriver().findElement().getAttribute("required");
     }
-
     @When("user enter  {string} into password field")
     public void userEnterIntoPasswordField(String arg0) {
         sendKeysFonction(loginPage.inputPassword,arg0);
@@ -100,5 +97,25 @@ clickFonction(loginPage.eyeButton);
     public void userShouldSeeResetPasswordLink() {
         Assert.assertTrue(loginPage.resetPasswordLink.isDisplayed());
         Assert.assertEquals("Reset Password", loginPage.resetPasswordLink.getAttribute("value"));
+    }
+
+    @Then("user should be displayed {string} message")
+    public void userShouldBeDisplayedMessage(String message) {
+
+
+
+
+    }
+
+    @Then("user should be displayed {string} message when {string} or{string} is blank")
+    public void userShouldBeDisplayedMessageWhenOrIsBlank(String message, String username, String password) {
+        if (username.isEmpty()){
+            Assert.assertEquals (message, loginPage.inputUsername.getAttribute("validationMessage" ));
+
+        } else if (password.isEmpty()) {
+            Assert.assertEquals (message, (loginPage.inputPassword.getAttribute("validationMessage" )));
+        }
+
+
     }
 }
