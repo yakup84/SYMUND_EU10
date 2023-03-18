@@ -31,7 +31,7 @@ public class LoginPage extends BrowserUtils {
     public WebElement popupMessage;
     @FindBy(xpath = "//a[@class='toggle-password']")
     public WebElement eyeButton;
-    @FindBy(id = "lost-password")
+    @FindBy(xpath = "//a[@id='lost-password']")
     public WebElement forgetPasswordLink;
     @FindBy(xpath = "//input[@id='reset-password-submit']")
     public WebElement resetPasswordLink;

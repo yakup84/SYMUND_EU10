@@ -96,7 +96,7 @@ clickFonction(loginPage.eyeButton);
     @Then("User should see Reset Password link")
     public void userShouldSeeResetPasswordLink() {
         Assert.assertTrue(loginPage.resetPasswordLink.isDisplayed());
-        Assert.assertEquals("Reset Password", loginPage.resetPasswordLink.getAttribute("value"));
+        Assert.assertEquals("Reset password", loginPage.resetPasswordLink.getAttribute("value"));
     }
 
     @Then("user should be displayed {string} message")
