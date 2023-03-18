@@ -1,5 +1,5 @@
 
-
+@SYMU10-313
 Feature: Login fonctionality
   User Story:As a user, I should be able to login.
 
@@ -44,22 +44,22 @@ Feature: Login fonctionality
       |             | yusuf kemal |
       | Employee130 |             |
       |             |             |
-
+  @SYMU10-400
   Scenario:Verify user can see the password in a form of dots by default
     When  user enter  "Employee123" into password field
     Then user should see the password in a form of dots
 
-
+  @SYMU10-401
   Scenario:Verify user can see the password explicitly if needed
     When  user enter  "Employee123" into password field
     And user click eye button near password
     Then user should see the password explicitly
 
-
+  @SYMU10-402
   Scenario:Verify User can see the "Forgot password?" link on the login page
     Then user should see the Forgot password? link
 
-
+  @SYMU10-403
   Scenario: Verify User can see the  "Reset Password" button on the next page after clicking on forget password link
     When User click Forgot password? link
     Then User should see Reset Password link
