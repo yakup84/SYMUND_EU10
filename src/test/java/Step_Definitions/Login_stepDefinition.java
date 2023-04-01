@@ -12,23 +12,27 @@ import org.junit.Assert;
 import org.openqa.selenium.Keys;
 
 public class Login_stepDefinition extends BrowserUtils {
-    LoginPage loginPage=new LoginPage();
+    LoginPage loginPage = new LoginPage();
+
     @When("user enter a valid {string} into user field")
     public void user_enter_a_valid_into_user_field(String string) {
-sendKeysFonction(loginPage.inputUsername, string);
+        sendKeysFonction(loginPage.inputUsername, string);
     }
+
     @When("user enter a valid {string} into password field")
     public void user_enter_a_valid_into_password_field(String string) {
-sendKeysFonction(loginPage.inputPassword, string);
+        sendKeysFonction(loginPage.inputPassword, string);
     }
+
     @When("user click Login button")
     public void user_click_login_button() {
-clickFonction(loginPage.loginButton);
+        clickFonction(loginPage.loginButton);
     }
+
     @Then("user should land on the home page")
     public void user_land_on_the_home_page() {
-verifyTitleFonction(
-        "Dashboard - Symund - QA");
+        verifyTitleFonction(
+                "Dashboard - Symund - QA");
     }
 
     @Given("user opens a browser and goes to login page")
@@ -39,7 +43,7 @@ verifyTitleFonction(
 
     @And("user enter a valid {string} into password field and click enter")
     public void userEnterAValidIntoPasswordFieldAndClickEnter(String arg0) {
-        sendKeysFonction(loginPage.inputPassword, arg0+ Keys.ENTER);
+        sendKeysFonction(loginPage.inputPassword, arg0 + Keys.ENTER);
     }
 
     @When("user enter invalid {string} or{string} into user and password field")
@@ -59,9 +63,10 @@ verifyTitleFonction(
         sendKeysFonction(loginPage.inputUsername, arg0);
         sendKeysFonction(loginPage.inputPassword, arg1);
     }
+
     @When("user enter  {string} into password field")
     public void userEnterIntoPasswordField(String arg0) {
-        sendKeysFonction(loginPage.inputPassword,arg0);
+        sendKeysFonction(loginPage.inputPassword, arg0);
     }
 
     @Then("user should see the password in a form of dots")
@@ -71,7 +76,7 @@ verifyTitleFonction(
 
     @And("user click eye button near password")
     public void userClickEyeButtonNearPassword() {
-clickFonction(loginPage.eyeButton);
+        clickFonction(loginPage.eyeButton);
 
     }
 
@@ -92,7 +97,6 @@ clickFonction(loginPage.eyeButton);
     }
 
 
-
     @Then("User should see Reset Password link")
     public void userShouldSeeResetPasswordLink() {
         Assert.assertTrue(loginPage.resetPasswordLink.isDisplayed());
@@ -103,19 +107,25 @@ clickFonction(loginPage.eyeButton);
     public void userShouldBeDisplayedMessage(String message) {
 
 
-
-
     }
 
     @Then("user should be displayed {string} message when {string} or{string} is blank")
     public void userShouldBeDisplayedMessageWhenOrIsBlank(String message, String username, String password) {
-        if (username.isEmpty()){
-            Assert.assertEquals (message, loginPage.inputUsername.getAttribute("validationMessage" ));
+        if (username.isEmpty()) {
+            Assert.assertEquals(message, loginPage.inputUsername.getAttribute("validationMessage"));
 
         } else if (password.isEmpty()) {
-            Assert.assertEquals (message, (loginPage.inputPassword.getAttribute("validationMessage" )));
+            Assert.assertEquals(message, (loginPage.inputPassword.getAttribute("validationMessage")));
         }
 
+
+    }
+
+    @Then("user can see valid placeholders on Username and Password fields")
+    public void userCanSeeValidPlaceholdersOnUsernameAndPasswordFields() {
+        Assert.assertTrue(loginPage.inputUsername.isDisplayed());
+
+        Assert.assertTrue(loginPage.inputPassword.isDisplayed());
 
     }
 }

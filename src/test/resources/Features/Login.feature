@@ -63,3 +63,7 @@ Feature: Login fonctionality
   Scenario: Verify User can see the  "Reset Password" button on the next page after clicking on forget password link
     When User click Forgot password? link
     Then User should see Reset Password link
+@SYMU10-412
+    Scenario:Verify user can see valid placeholders on Username and Password fields
+      Given user opens a browser and goes to login page
+      Then user can see valid placeholders on Username and Password fields
